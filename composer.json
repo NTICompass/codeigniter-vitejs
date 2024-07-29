@@ -1,5 +1,5 @@
 {
-    "name": "mihatori/codeignitervite",
+    "name": "nticompass/codeignitervite",
     "description": "Integrate viteJs in codeiginter4 framework",
     "license": "MIT",
     "type": "library",
@@ -18,6 +18,12 @@
             "name": "Mihatori Kei",
             "email": "mihatorikei@gmail.com",
             "homepage": "https://github.com/firtadokei/"
+        },
+        {
+            "name": "Eric Siegel",
+            "email": "NTICompass@gmail.com",
+            "homepage": "https://generic.computers.pictures",
+            "role": "Contributor"
         }
     ],
     "require": {
