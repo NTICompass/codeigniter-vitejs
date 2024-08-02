@@ -8,7 +8,7 @@ class Vite
     /**
      * @var string manifest path.
      */
-    private static $manifest = FCPATH . 'manifest.json';
+    private static $manifest = FCPATH . '.vite/manifest.json';
 
     /**
      * Get vite entry file on running or bundled files instead.
