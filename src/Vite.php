@@ -26,7 +26,7 @@ class Vite
         # Check if vite is running.
         $entryFile = env('VITE_ORIGIN') . '/' . env('VITE_RESOURCES_DIR') . '/' . env('VITE_ENTRY_FILE');
 
-        $result['js'] = @file_get_contents($entryFile) ? '<script type="module" src="' . $entryFile . '"></script>' : null;
+        $result['js'] = @file_get_contents($entryFile) ? '<script type="module" src="' . $entryFile . '" ' . ($useNonce ? csp_script_nonce() : '') . '></script>' : null;
 
         # React HMR fix.
         if (!empty($result['js']))
