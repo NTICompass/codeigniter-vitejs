@@ -16,7 +16,7 @@ class Vite
      * @param bool $useNonce Use CSP nonce value on tags
      * @return array single script tag on developing and much more on production
      */
-    public static function tags(bool $useNonce): ?array
+    public static function tags(bool $useNonce=false): ?array
     {
         $result = [
             'js'    => null,
