@@ -13,9 +13,10 @@ class Vite
     /**
      * Get vite entry file on running or bundled files instead.
      * 
+     * @param bool $useNonce Use CSP nonce value on tags
      * @return array single script tag on developing and much more on production
      */
-    public static function tags(): ?array
+    public static function tags(bool $useNonce): ?array
     {
         $result = [
             'js'    => null,
@@ -50,14 +51,14 @@ class Vite
                 # Generate js tag.
                 if ($fileExtension === '.js' && isset($file->isEntry) && $file->isEntry === true && (!isset($file->isDynamicEntry) || $file->isDynamicEntry !== true))
                 {
-                    $result['js'] .= '<script type="module" src="/' . $file->file . '"></script>';
+                    $result['js'] .= '<script type="module" src="/' . $file->file . '" ' . ($useNonce ? csp_script_nonce() : '') . '></script>';
                 }
 
                 if (!empty($file->css))
                 {
                     foreach ($file->css as $cssFile)
                     {
-                        $result['css'] .= '<link rel="stylesheet" href="/' . $cssFile . '" />';
+                        $result['css'] .= '<link rel="stylesheet" href="/' . $cssFile . '" ' . ($useNonce ? csp_style_nonce() : '') . '/>';
                     }
                 }
             }
